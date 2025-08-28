@@ -224,10 +224,16 @@ header {
   line-height: 1.6;
 }
 
+/* About Image Carousel */
+.about-img {
+  max-width: 400px; /* keep carousel narrower than hero */
+}
+
 .about-img img {
-  max-width: 400px;
+  width: 100%;
   border-radius: 10px;
 }
+
 
 /* Contact Section */
 .contact-form {

@@ -1,9 +1,8 @@
+// Navigation Active Section Observer
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-links a");
 
-const options = {
-  threshold: 0.6 // section should be at least 60% visible
-};
+const options = { threshold: 0.6 };
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -20,35 +19,38 @@ const observer = new IntersectionObserver((entries) => {
 
 sections.forEach(section => observer.observe(section));
 
-// Carousel
-const slides = document.querySelectorAll(".carousel img");
-const prevBtn = document.querySelector(".carousel .prev");
-const nextBtn = document.querySelector(".carousel .next");
 
-let currentSlide = 0;
+// 🎠 Multi-Carousel Support
+document.querySelectorAll(".carousel").forEach(carousel => {
+  const slides = carousel.querySelectorAll("img");
+  const prevBtn = carousel.querySelector(".prev");
+  const nextBtn = carousel.querySelector(".next");
+  let currentSlide = 0;
 
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove("active");
-    if (i === index) {
-      slide.classList.add("active");
-    }
-  });
-}
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove("active");
+      if (i === index) slide.classList.add("active");
+    });
+  }
 
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // Button clicks
+  nextBtn.addEventListener("click", nextSlide);
+  prevBtn.addEventListener("click", prevSlide);
+
+  // Auto-slide every 5s for each carousel
+  setInterval(nextSlide, 5000);
+
+  // Initialize first slide
   showSlide(currentSlide);
-}
-
-function prevSlide() {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
-}
-
-// Button clicks
-nextBtn.addEventListener("click", nextSlide);
-prevBtn.addEventListener("click", prevSlide);
-
-// Auto-slide every 5s
-setInterval(nextSlide, 5000);
+});
