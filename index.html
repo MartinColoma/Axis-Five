@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Axis V Solutions</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axis V Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="./images/Logos/A5_Logo1.png" />
+
 </head>
 <body>
   <!-- Navbar -->
   <header>
     <nav class="navbar">
-      <div class="logo">Axis V Solutions</div>
+      <div class="logo">
+        <h1>
+          <span class="axis">Axis</span><span class="five">Five Solutions</span>
+        </h1>
+      </div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#team">Our Team</a></li>
@@ -19,7 +25,6 @@
       </ul>
     </nav>
   </header>
-
   <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="hero-text">
@@ -53,7 +58,7 @@
         <p>Full Stack Developer</p>
         </div>
         <div class="team-member">
-        <img src="images/Team/Earl.jpg" alt="Earl">
+        <img src="images/Team/Earl2.png" alt="Earl">
         <h3>Earl</h3>
         <p>Hardware Engineer</p>
         </div>
@@ -103,12 +108,12 @@
   <!-- Contact Section -->
   <section id="contact" class="section contact">
     <h2>Contact Us</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+      <form class="contact-form" id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
   </section>
 
   <!-- Footer -->

@@ -19,6 +19,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid #00bcd4;
 }
 
 .navbar {
@@ -28,15 +29,32 @@ header {
 }
 
 .logo {
-  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem; /* adjust as needed */
   font-weight: bold;
+  margin-left: 40px;
+}
+
+.logo h1 {
+  font-size: 1.8rem; /* adjust size as needed */
+  font-weight: bold;
+}
+
+.axis {
   color: #00bcd4;
 }
+
+.five {
+  color: #fff;
+}
+
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
+  font-size: 1rem;
 }
 
 .nav-links a {
