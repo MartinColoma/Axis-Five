@@ -254,6 +254,22 @@ header {
   width: 100%;
   border-radius: 10px;
 }
+.view-more-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background: #00bcd4;
+  color: #121212;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.view-more-btn:hover {
+  background: #0097a7;
+  transform: translateY(-2px);
+}
 
 
 /* Contact Section */
@@ -302,3 +318,4 @@ footer {
   font-size: 0.9rem;
   color: #aaaaaa;
 }
+
