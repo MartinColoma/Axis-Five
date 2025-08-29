@@ -14,14 +14,14 @@ app.post("/send-email", async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "docusort@gmail.com",       // your Gmail
-        pass: "kpgc hbzr kfyb ojiu"       // Gmail App Password
+        user: "axisfive.solution@gmail.com",       // your Gmail
+        pass: "qqjw kxfd dncn eoxn"       // Gmail App Password
       }
     });
 
     await transporter.sendMail({
       from: email,
-      to: "docusort@gmail.com",          // where you want to receive messages
+      to: "axisfive.solution@gmail.com",          // where you want to receive messages
       subject: `New Inquiry from ${name}`,
       text: `Message from ${name} (${email}):\n\n${message}`
     });

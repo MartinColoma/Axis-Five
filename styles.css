@@ -11,7 +11,10 @@ body {
   color: #e0e0e0;
   scroll-behavior: smooth;
 }
-
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
 /* Navbar */
 header {
   background: #1f1f1f;
