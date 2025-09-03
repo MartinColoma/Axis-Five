@@ -1,6 +1,6 @@
 // Navigation Active Section Observer
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
+const sections = document.querySelectorAll("section[id]"); // only sections with IDs
+const navLinks = document.querySelectorAll(".nav-links > li > a"); // only top-level links
 
 const options = { threshold: 0.6 };
 
@@ -9,8 +9,14 @@ const observer = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       navLinks.forEach(link => {
         link.classList.remove("active");
-        if (link.getAttribute("href").substring(1) === entry.target.id) {
-          link.classList.add("active");
+
+        // Match href="#id" with section id
+        const href = link.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          const sectionId = href.substring(1);
+          if (sectionId === entry.target.id) {
+            link.classList.add("active");
+          }
         }
       });
     }
@@ -18,6 +24,7 @@ const observer = new IntersectionObserver((entries) => {
 }, options);
 
 sections.forEach(section => observer.observe(section));
+
 
 
 // 🎠 Multi-Carousel Support

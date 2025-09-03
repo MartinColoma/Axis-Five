@@ -1,92 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axis Five Solutions</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/svg+xml" href="./images/Logos/A5_Logo1.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axis Five Solutions</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="./images/Logos/A5_Logo1.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <h1>
-          <span class="axis">Axis</span><span class="five">Five Solutions</span>
-        </h1>
+<header>
+  <nav class="navbar">
+    <div class="logo">
+      <h1><span class="axis">Axis</span><span class="five">Five Solutions</span></h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+
+      <!-- About Dropdown -->
+      <li class="dropdown">
+        <a href="#about">About</a>
+        <div class="dropdown-content">
+          <a href="/pages/about/about.html#about">Who We Are</a>
+          <a href="/about/about.html#why-us">Why Choose Us</a>
+          <a href="/about/about.html#founder">Founder</a>
+        </div>
+      </li>
+
+      <!-- Services Dropdown -->
+      <li class="dropdown">
+        <a href="#services">Services</a>
+        <div class="dropdown-content">
+          <a href="#services">IoT Solutions</a>
+          <a href="#services">IT Consulting</a>
+          <a href="#services">Custom Development</a>
+        </div>
+      </li>
+
+      <!-- Products Dropdown -->
+      <li class="dropdown">
+        <a href="#products">Products</a>
+        <div class="dropdown-content">
+          <a href="#products">Smart Environment Monitor</a>
+          <a href="#products">Connected Security System</a>
+        </div>
+      </li>
+
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<section id="home" class="hero merged">
+  <div class="hero-left">
+    <h1>Empowering Innovation,<br> Inspiring the Future.</h1>
+    <p>Technology Aligned. Futures Defined.</p>
+    <button class="cta-btn" onclick="location.href='#services'">
+      Discover Our Services
+    </button>
+
+    <!-- Tech Stack under text -->
+    <div class="tech-container inline">
+      <div class="tech-item"><img src="images/stack/mysql.jpg" alt="MySQL"></div>
+      <div class="tech-item"><img src="images/stack/express.jpg" alt="Express"></div>
+      <div class="tech-item"><img src="images/stack/react.jpg" alt="React"></div>
+      <div class="tech-item"><img src="images/stack/node.jpg" alt="Node.js"></div>
+      <div class="tech-item"><img src="images/stack/flask.jpg" alt="Flask"></div>
+    </div>
+  </div>
+
+  <div class="hero-img carousel">
+    <img src="images/Home/H1.png" alt="Slide 1" class="active">
+    <img src="images/Home/H2.jpg" alt="Slide 2">
+    <img src="images/Home/H3.png" alt="Slide 3">
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+</section>
+
+ <!-- Testimonials -->
+  <section id="testimonials" class="section testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-container">
+      <div class="testimonial-card">
+        <p>"Axis Five transformed our workflow with their IoT solutions. Highly reliable team!"</p>
+        <h4>- CEO, TechCorp</h4>
       </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#team">Our Team</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
-    </nav>
-  </header>
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-text">
-        <h1>Empowering Innovation,<br> Inspiring the Future.</h1>
-        <p>Technology Aligned. Futures Defined.</p>
-        <button 
-            class="cta-btn" 
-            onclick="location.href='#team'">
-            Discover Our Team
-        </button>
+      <div class="testimonial-card">
+        <p>"Professional, innovative, and client-focused. Their IT services are top-notch."</p>
+        <h4>- CTO, InnovateX</h4>
+      </div>
     </div>
-    <div class="hero-img carousel">
-        <img src="images/Home/H1.png" alt="Slide 1" class="active">
-        <img src="images/Home/H2.jpg" alt="Slide 2">
-        <img src="images/Home/H3.png" alt="Slide 3">
-
-        <!-- Carousel controls -->
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-    </div>
-
   </section>
-
-    <!-- Team Section -->
-    <section id="team" class="section">
-    <h2>Meet Our Team</h2>
-    <div class="team-container">
-        <div class="team-member">
-          <img src="images/Team/Martin.png" alt="Martin">
-          <h3>Martin</h3>
-          <p>Full Stack Developer</p>
-        </div>
-        <div class="team-member">
-          <img src="images/Team/Earl2.png" alt="Earl">
-          <h3>Earl</h3>
-          <p>Hardware Engineer</p>
-        </div>
-        <div class="team-member">
-          <img src="images/Team/Karl.png" alt="Karl">
-          <h3>Karl</h3>
-          <p>Frontend Developer</p>
-        </div>
-        <div class="team-member">
-          <img src="images/Team/Kent2.png" alt="Kent">
-          <h3>Kent</h3>
-          <p>Operations Manager</p>
-        </div>
-        <div class="team-member">
-          <img src="images/Team/Paul.png" alt="Paul">
-          <h3>Paul</h3>
-          <p>Hardware System Engineer</p>
-        </div>
-    </div>
-        <a href="./team/team.html" class="view-more-btn">View More</a>
-    </section>
-
-
 <!-- About Us Section -->
 <section id="about" class="section about">
   <div class="about-text">
     <h2>About Us</h2>
     <p>
-      Axis V Solutions was founded by five forward-thinking engineers with a shared vision:
+      Axis Five Solutions was founded by five forward-thinking engineers with a shared vision:
       to align technology with human progress. We combine deep technical expertise
       with bold innovation to create solutions that power businesses and inspire the future.
     </p>
@@ -106,21 +119,97 @@
 </section>
 
 
-  <!-- Contact Section -->
-  <section id="contact" class="section contact">
-    <h2>Contact Us</h2>
-      <form class="contact-form" id="contactForm">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+  <!-- Why Choose Us -->
+  <!-- <section id="why-us" class="section why">
+    <h2>Why Choose Us</h2>
+    <div class="why-container">
+      <div class="why-card"><i class="fas fa-bolt"></i><h3>Fast Deployment</h3><p>We build and deploy solutions quickly without compromising quality.</p></div>
+      <div class="why-card"><i class="fas fa-shield-alt"></i><h3>Secure Systems</h3><p>Enterprise-grade security is built into every solution.</p></div>
+      <div class="why-card"><i class="fas fa-network-wired"></i><h3>IoT & IT Expertise</h3><p>Seamless integration of hardware and software systems.</p></div>
+      <div class="why-card"><i class="fas fa-handshake"></i><h3>Client-Centered</h3><p>Your success is our mission — we tailor every project to your needs.</p></div>
+    </div>
+  </section> -->
+
+  <!-- Services -->
+  <section id="services" class="section services">
+    <h2>Our Services</h2>
+    <div class="service-container">
+      <div class="service-card">
+        <i class="fas fa-microchip"></i>
+        <h3>IoT Solutions</h3>
+        <p>Smart sensors, connected devices, and automation systems to bring your ideas to life.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-code"></i>
+        <h3>IT Services</h3>
+        <p>Web applications, cloud systems, and IT consulting built for scalability and performance.</p>
+      </div>
+    </div>
   </section>
+
+  <!-- Products -->
+  <section id="products" class="section products">
+    <h2>Our Products</h2>
+    <div class="product-container">
+      <div class="product-card">
+        <img src="images/Products/product1.png" alt="IoT Device">
+        <h3>Smart Environment Monitor</h3>
+        <p>Real-time monitoring of temperature, humidity, and air quality.</p>
+      </div>
+      <div class="product-card">
+        <img src="images/Products/product2.png" alt="IoT Device">
+        <h3>Connected Security System</h3>
+        <p>IoT-enabled security solutions with cloud connectivity.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+ 
+
+
+
+<!-- Contact -->
+<section id="contact" class="section contact">
+  <div class="contact-container">
+    <div class="contact-header">
+      <div class="icon-wrapper">📩</div>
+      <h2>Let’s get to work!</h2>
+      <p>Have an idea or project in mind? Drop me a message and let’s build something amazing together.</p>
+    </div>
+    <form class="contact-form" id="contactForm">
+      <div class="input-group">
+        <input type="text" name="name" id="name" required>
+        <label for="name">Your Name</label>
+      </div>
+      <div class="input-group">
+        <input type="email" name="email" id="email" required>
+        <label for="email">Your Email</label>
+      </div>
+      <div class="input-group">
+        <textarea name="message" id="message" required></textarea>
+        <label for="message">Your Message</label>
+      </div>
+      <button type="submit">🚀 Send Message</button>
+    </form>
+    <div class="contact-links">
+      <p class="contact-alt">or reach us on our social media</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/axisfive.solutions/" target="_blank" class="contact-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/a5.sol/" target="_blank" class="contact-btn"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/MartinColoma/Axis-Five" target="_blank" class="contact-btn"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Axis V Solutions. All rights reserved.</p>
+    <p>&copy; 2025 Axis Five Solutions. All rights reserved.</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -3,10 +3,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 body {
-  font-family: Arial, sans-serif;
   background-color: #121212; /* dark mode background */
   color: #e0e0e0;
   scroll-behavior: smooth;
@@ -23,12 +23,6 @@ header {
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid #00bcd4;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .logo {
@@ -53,29 +47,65 @@ header {
 }
 
 
+/* Navbar Base */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1f1f1f;
+  padding: 1rem 2rem;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
-  font-size: 1rem;
+}
+
+.nav-links li {
+  position: relative; /* Important for dropdown positioning */
 }
 
 .nav-links a {
+  color: #fff;
   text-decoration: none;
-  color: #e0e0e0;
-  font-weight: 500;
-  transition: color 0.3s;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
   color: #00bcd4;
-  text-decoration: none;
 }
-.nav-links a.active {
-  color: #00bcd4;
-  font-weight: bold;
-  border-bottom: 2px solid #00bcd4;
-  padding-bottom: 2px;
+
+/* Dropdown container */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* Below parent */
+  left: 0;
+  background: #2a2a2a;
+  min-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 100;
+  flex-direction: column;
+}
+
+.dropdown-content a {
+  padding: 0.75rem 1rem;
+  display: block;
+  color: #fff;
+}
+
+.dropdown-content a:hover {
+  background: #00bcd4;
+  color: #000;
+  border-radius: 8px;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: flex;
 }
 
 /* Sections */
@@ -137,6 +167,95 @@ header {
   max-width: 700px;
   border-radius: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+/* Hero Section (Merged with Tech Stack) */
+.hero.merged {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: calc(100vh - 70px);
+  padding: 4rem 5rem;
+  gap: 3rem;
+}
+
+.hero-left {
+  flex: 1;
+}
+
+.hero-left h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.hero-left p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #bbbbbb;
+}
+
+.cta-btn {
+  background: #00bcd4;
+  color: #121212;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cta-btn:hover {
+  background: #0097a7;
+}
+
+/* Tech Stack Inline */
+.tech-container.inline {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.tech-container.inline .tech-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border: 2px solid #00bcd4;
+  border-radius: 50%;
+  background: #1f1f1f;
+}
+
+/* Hero Carousel */
+.hero-img.carousel {
+  flex: 1;
+  position: relative;
+  max-width: 700px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.hero-img img {
+  width: 100%;
+  display: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hero-img img.active {
+  display: block;
+  opacity: 1;
+}
+
 /* Carousel */
 .carousel {
   position: relative;
@@ -273,49 +392,272 @@ header {
 
 
 /* Contact Section */
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, #121212, #1f1f1f);
+}
+
+.contact-container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.contact-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-header p {
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+
+.icon-wrapper {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
+  gap: 1.5rem;
+}
+
+/* Floating label effect */
+.input-group {
+  position: relative;
+}
+
+.input-group input,
+.input-group textarea {
   width: 100%;
+  padding: 1rem;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  outline: none;
+  font-size: 1rem;
 }
 
-.contact-form input,
-.contact-form textarea {
-  padding: 0.8rem;
-  border: none;
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: #aaa;
+  font-size: 0.9rem;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group textarea:focus + label,
+.input-group textarea:valid + label {
+  top: -8px;
+  left: 0.8rem;
+  font-size: 0.75rem;
+  color: #00bcd4;
+  background: #121212;
+  padding: 0 0.3rem;
   border-radius: 5px;
-  background: #1f1f1f;
-  color: #e0e0e0;
 }
 
-.contact-form textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
+/* Button styling */
 .contact-form button {
-  padding: 0.8rem;
+  padding: 1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   background: #00bcd4;
   color: #121212;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(0,188,212,0.6);
 }
 
 .contact-form button:hover {
   background: #0097a7;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0,188,212,0.8);
+}
+.contact-links {
+  margin-top: 2rem; /* space below send button */
+  text-align: center;
 }
 
-/* Footer */
-footer {
-  background: #1f1f1f;
-  text-align: center;
-  padding: 1rem;
+.contact-alt {
+  color: #aaa;
   font-size: 0.9rem;
-  color: #aaaaaa;
+  margin-bottom: 0.8rem;
 }
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+
+.contact-btn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #0097a7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0097a7;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.contact-btn:hover {
+  background-color: #0097a7;
+  color: #1f1f1f;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #1f1f1f;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+footer p {
+  margin: 0.5rem 0;
+}
+
+.footer-links {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-btn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #0097a7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0097a7;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-btn:hover {
+  background-color: #0097a7;
+  color: #1f1f1f;
+  text-decoration: none;
+}
+/* Keep your current styles, then add/modify these for new sections */
+
+/* Services */
+.service-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.service-card {
+  background: #1f1f1f;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+}
+.service-card i {
+  font-size: 2rem;
+  color: #00bcd4;
+  margin-bottom: 1rem;
+}
+
+/* Products */
+.product-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.product-card {
+  background: #1f1f1f;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+}
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Tech Stack */
+.tech-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: center;
+}
+.tech-item {
+  text-align: center;
+}
+.tech-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  border: 2px solid #0097a7;
+  border-radius: 50%;
+}
+
+/* Testimonials */
+.testimonial-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.testimonial-card {
+  background: #1f1f1f;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 400px;
+  font-style: italic;
+}
+.testimonial-card h4 {
+  margin-top: 1rem;
+  color: #00bcd4;
+}
+
+
 
