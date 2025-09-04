@@ -300,48 +300,82 @@ header {
 .carousel button:hover {
   background: rgba(0,0,0,0.8);
 }
-
-
-/* Team Section */
-.team-container {
+/* Tech Stack */
+.tech-container {
   display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
   justify-content: center;
+}
+.tech-item {
+  text-align: center;
+}
+.tech-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  border: 2px solid #0097a7;
+  border-radius: 50%;
+}
+
+/* Testimonials */
+.testimonials {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.testimonial-container {
+  display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
-.team-member {
+.testimonial-card {
   background: #1f1f1f;
-  border-radius: 10px;
-  overflow: hidden;
-  width: 220px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 420px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  text-align: left;
+  transition: transform 0.3s ease;
 }
 
-.team-member:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-  background: #2c2c2c;
+.testimonial-card:hover {
+  transform: translateY(-6px);
 }
 
-.team-member img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-}
-
-.team-member h3 {
-  margin: 0.8rem 0 0.3rem;
-  color: #00bcd4;
-  font-size: 1.2rem;
-}
-
-.team-member p {
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 1rem;
+}
+
+.testimonial-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #00bcd4;
+}
+
+.testimonial-text {
+  font-style: italic;
+  color: #e0e0e0;
+}
+
+.testimonial-card h4 {
+  margin: 0;
+  color: #fff;
+}
+
+.role {
   font-size: 0.9rem;
-  color: #bbbbbb;
+  color: #00bcd4;
 }
 
 
@@ -389,6 +423,94 @@ header {
   background: #0097a7;
   transform: translateY(-2px);
 }
+
+/* Services */
+.services {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.service-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: #1f1f1f;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+}
+
+.service-card i {
+  font-size: 2rem;
+  color: #00bcd4;
+  margin-bottom: 1rem;
+}
+
+/* Products */
+.products {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.product-card {
+  background: #1f1f1f;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  text-align: left;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.product-features {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  color: #cfcfcf;
+  font-size: 0.9rem;
+}
+.product-card img {
+  width: 100%;              /* makes the image span full width of the card */
+  height: 200px;            /* consistent height for all product images */
+  object-fit:fill;        /* crops image proportionally to fill */
+  border-radius: 8px;       /* smooth rounded corners */
+  margin-bottom: 1rem;      /* spacing before title */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card img:hover {
+  transform: scale(1.05);   /* subtle zoom effect */
+  box-shadow: 0 6px 16px rgba(0, 188, 212, 0.5); /* glow highlight */
+}
+
+
 
 
 /* Contact Section */
@@ -537,33 +659,76 @@ header {
   text-decoration: none;
 }
 
+/* footer section */
 footer {
   background-color: #1f1f1f;
   color: #fff;
-  text-align: center;
-  padding: 1rem 0;
+  padding: 2rem 1rem 1rem;
+  font-family: Arial, sans-serif;
 }
 
-footer p {
-  margin: 0.5rem 0;
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* pushes left/center/right */
+  align-items: flex-start;
+  flex-wrap: wrap; /* stacks on smaller screens */
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem; /* keep breathing room on wrap */
+}
+.footer-column {
+  flex: 1;
+  min-width: 250px; /* prevents too much squish */
+}
+
+
+.footer-logo h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0 0 0.3rem;
+}
+
+.footer-axis {
+  color: #00bcd4;
+}
+
+.footer-five {
+  color: #fff;
+}
+
+.tagline {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #ccc;
+  margin-bottom: 0.8rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin: 0.3rem 0;
+}
+
+.footer-column h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: #00bcd4;
 }
 
 .footer-links {
-  margin-top: 0.5rem;
   display: flex;
-  justify-content: center;
   gap: 1rem;
 }
 
 .footer-btn {
   width: 40px;
   height: 40px;
-  border: 2px solid #0097a7;
+  border: 2px solid #ccc;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0097a7;
+  color: #ccc;
   font-size: 18px;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -571,93 +736,21 @@ footer p {
 
 .footer-btn:hover {
   background-color: #0097a7;
-  color: #1f1f1f;
-  text-decoration: none;
-}
-/* Keep your current styles, then add/modify these for new sections */
-
-/* Services */
-.service-container {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.service-card {
-  background: #1f1f1f;
-  padding: 2rem;
-  border-radius: 10px;
-  width: 280px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-.service-card:hover {
-  transform: translateY(-5px);
-}
-.service-card i {
-  font-size: 2rem;
-  color: #00bcd4;
-  margin-bottom: 1rem;
-}
-
-/* Products */
-.product-container {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.product-card {
-  background: #1f1f1f;
-  padding: 1rem;
-  border-radius: 10px;
-  width: 250px;
-  text-align: center;
-}
-.product-card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-
-/* Tech Stack */
-.tech-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 2rem;
-  justify-content: center;
-}
-.tech-item {
-  text-align: center;
-}
-.tech-item img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
   border: 2px solid #0097a7;
-  border-radius: 50%;
+  color: #1f1f1f;
 }
 
-/* Testimonials */
-.testimonial-container {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
+.copyright {
+  border-top: 1px solid #444; /* can be #fff if you want solid white */
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #888;
 }
-.testimonial-card {
-  background: #1f1f1f;
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 400px;
-  font-style: italic;
-}
-.testimonial-card h4 {
-  margin-top: 1rem;
-  color: #00bcd4;
-}
+
+
+
 
 
 

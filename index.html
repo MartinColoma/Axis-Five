@@ -11,12 +11,12 @@
 <body>
 <header>
   <nav class="navbar">
-    <div class="logo">
+    <div class="nav-logo">
       <h1><span class="axis">Axis</span><span class="five">Five Solutions</span></h1>
     </div>
     <ul class="nav-links">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="/index.html#home" class="active">Home</a></li>
+      <li><a href="/index.html#testimonials">Testimonials</a></li>
 
       <!-- About Dropdown -->
       <li class="dropdown">
@@ -24,6 +24,7 @@
         <div class="dropdown-content">
           <a href="/pages/about/about.html#about">Who We Are</a>
           <a href="/pages/about/about.html#why-us">Why Choose Us</a>
+          <a href="/pages/about/about.html#tech-stack">Technologies</a>
           <a href="/pages/about/about.html#founder">Founder</a>
           <a href="/pages/about/about.html#team">Our Developers</a>
         </div>
@@ -32,20 +33,20 @@
       <!-- Services Dropdown -->
       <li class="dropdown">
         <a href="#services">Services</a>
-        <div class="dropdown-content">
+        <!-- <div class="dropdown-content">
           <a href="#services">IoT Solutions</a>
           <a href="#services">IT Consulting</a>
           <a href="#services">Custom Development</a>
-        </div>
+        </div> -->
       </li>
 
       <!-- Products Dropdown -->
       <li class="dropdown">
         <a href="#products">Products</a>
-        <div class="dropdown-content">
+        <!-- <div class="dropdown-content">
           <a href="#products">Smart Environment Monitor</a>
           <a href="#products">Connected Security System</a>
-        </div>
+        </div> -->
       </li>
 
       <li><a href="#contact">Contact</a></li>
@@ -81,20 +82,44 @@
   </div>
 </section>
 
- <!-- Testimonials -->
-  <section id="testimonials" class="section testimonials">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonial-container">
-      <div class="testimonial-card">
-        <p>"Axis Five transformed our workflow with their IoT solutions. Highly reliable team!"</p>
-        <h4>- CEO, TechCorp</h4>
+<!-- Testimonials -->
+<section id="testimonials" class="section testimonials">
+  <h2>What Our Clients Say</h2>
+  <div class="testimonial-container">
+    
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <img src="images/clients/ceo-techcorp.jpg" alt="CEO TechCorp" class="testimonial-img">
+        <div>
+          <h4>Jane Smith</h4>
+          <p class="role">CEO, TechCorp</p>
+        </div>
       </div>
-      <div class="testimonial-card">
-        <p>"Professional, innovative, and client-focused. Their IT services are top-notch."</p>
-        <h4>- CTO, InnovateX</h4>
-      </div>
+      <p class="testimonial-text">
+        "Axis Five completely transformed our workflow with their IoT solutions. Their
+        ability to integrate seamlessly into our existing system was impressive. The
+        team is reliable, responsive, and truly committed to delivering value."
+      </p>
     </div>
-  </section>
+
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <img src="images/clients/cto-innovatex.jpg" alt="CTO InnovateX" class="testimonial-img">
+        <div>
+          <h4>Michael Lee</h4>
+          <p class="role">CTO, InnovateX</p>
+        </div>
+      </div>
+      <p class="testimonial-text">
+        "Professional, innovative, and client-focused. Their IT services are top-notch
+        and exceeded our expectations. Axis Five delivered on time, with excellent
+        communication throughout the project."
+      </p>
+    </div>
+
+  </div>
+</section>
+
 <!-- About Us Section -->
 <section id="about" class="section about">
   <div class="about-text">
@@ -104,7 +129,7 @@
       to align technology with human progress. We combine deep technical expertise
       with bold innovation to create solutions that power businesses and inspire the future.
     </p>
-    <a href="./about/about.html" class="view-more-btn">Know More</a>
+    <a href="/pages/about/about.html" class="view-more-btn">Know More</a>
   </div>
   
   <!-- About Us Carousel -->
@@ -119,51 +144,68 @@
   </div>
 </section>
 
-
-  <!-- Why Choose Us -->
-  <!-- <section id="why-us" class="section why">
-    <h2>Why Choose Us</h2>
-    <div class="why-container">
-      <div class="why-card"><i class="fas fa-bolt"></i><h3>Fast Deployment</h3><p>We build and deploy solutions quickly without compromising quality.</p></div>
-      <div class="why-card"><i class="fas fa-shield-alt"></i><h3>Secure Systems</h3><p>Enterprise-grade security is built into every solution.</p></div>
-      <div class="why-card"><i class="fas fa-network-wired"></i><h3>IoT & IT Expertise</h3><p>Seamless integration of hardware and software systems.</p></div>
-      <div class="why-card"><i class="fas fa-handshake"></i><h3>Client-Centered</h3><p>Your success is our mission — we tailor every project to your needs.</p></div>
-    </div>
-  </section> -->
-
   <!-- Services -->
-  <section id="services" class="section services">
-    <h2>Our Services</h2>
-    <div class="service-container">
-      <div class="service-card">
-        <i class="fas fa-microchip"></i>
-        <h3>IoT Solutions</h3>
-        <p>Smart sensors, connected devices, and automation systems to bring your ideas to life.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-code"></i>
-        <h3>IT Services</h3>
-        <p>Web applications, cloud systems, and IT consulting built for scalability and performance.</p>
-      </div>
-    </div>
-  </section>
+<section id="services" class="section services">
+  <h2>Our Services</h2>
+  <div class="service-container">
 
-  <!-- Products -->
-  <section id="products" class="section products">
-    <h2>Our Products</h2>
-    <div class="product-container">
-      <div class="product-card">
-        <img src="images/Products/product1.png" alt="IoT Device">
-        <h3>Smart Environment Monitor</h3>
-        <p>Real-time monitoring of temperature, humidity, and air quality.</p>
-      </div>
-      <div class="product-card">
-        <img src="images/Products/product2.png" alt="IoT Device">
-        <h3>Connected Security System</h3>
-        <p>IoT-enabled security solutions with cloud connectivity.</p>
-      </div>
+    <div class="service-card">
+      <i class="fas fa-microchip"></i>
+      <h3>IoT Solutions</h3>
+      <p>Smart sensors, connected devices, and automation systems to bring your ideas to life. Our IoT experts design, deploy, and maintain solutions tailored to your business needs.</p>
     </div>
-  </section>
+
+    <div class="service-card">
+      <i class="fas fa-code"></i>
+      <h3>IT Services</h3>
+      <p>Web applications, cloud systems, and IT consulting built for scalability and performance. We ensure your business stays agile and future-proof.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-cloud"></i>
+      <h3>Cloud Integration</h3>
+      <p>Seamlessly migrate and scale your operations with secure cloud infrastructure and 24/7 support.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Cybersecurity</h3>
+      <p>Protect your digital assets with next-gen security solutions, risk assessments, and monitoring systems.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Products -->
+<section id="products" class="section products">
+  <h2>Our Products</h2>
+  <div class="product-container">
+
+    <div class="product-card">
+      <img src="/images/products/env-monitor.jpg" alt="Smart Environment Monitor">
+      <h3>Smart Environment Monitor</h3>
+      <p>Real-time monitoring of temperature, humidity, and air quality. Ideal for smart homes, offices, and industrial settings.</p>
+      <ul class="product-features">
+        <li>✔ Wireless connectivity</li>
+        <li>✔ Mobile app integration</li>
+        <li>✔ Energy-efficient</li>
+      </ul>
+    </div>
+
+    <div class="product-card">
+      <img src="/images/products/security-system.jpg" alt="Connected Security System">
+      <h3>Connected Security System</h3>
+      <p>IoT-enabled security solutions with cloud connectivity. Keep your property safe with 24/7 remote access.</p>
+      <ul class="product-features">
+        <li>✔ AI motion detection</li>
+        <li>✔ Cloud storage</li>
+        <li>✔ Instant mobile alerts</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
 
 
 
@@ -207,9 +249,46 @@
 
 
   <!-- Footer -->
-  <footer>
+<footer>
+  <div class="footer-container">
+    <!-- Column 1: Logo + Tagline + Address -->
+    <div class="footer-column">
+      <div class="footer-logo">
+        <h1>
+          <span class="footer-axis">Axis</span><span class="footer-five">Five Solutions</span>
+        </h1>
+      </div>
+      <p class="subtitle">Maybunga, Pasig City Philippines 1607</p>
+      <p class="tagline">Empowering Innovation, Inspiring the Future.</p>
+    </div>
+
+    <!-- Column 2: Reach Us -->
+    <div class="footer-column">
+      <h3>Reach us here:</h3>
+      <p class="subtitle">axisfive.solution@gmail.com</p>
+      <p class="subtitle">+63 945 509 3110</p>
+    </div>
+
+    <!-- Column 3: Social Media -->
+    <div class="footer-column">
+      <h3>Follow our social media</h3>
+      <div class="footer-links">
+        <a href="https://www.facebook.com/axisfive.solutions/" target="_blank" class="footer-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/a5.sol/" target="_blank" class="footer-btn"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/MartinColoma/Axis-Five" target="_blank" class="footer-btn"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="copyright">
     <p>&copy; 2025 Axis Five Solutions. All rights reserved.</p>
-  </footer>
+  </div>
+</footer>
+
+
+
+
 
   <script src="script.js"></script>
 </body>
