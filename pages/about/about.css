@@ -522,7 +522,7 @@ header {
   padding-left: 2rem;
 }
 
-/* Team Section */
+/* Team Section - Updated for compact view */
 .team-header {
   margin-bottom: 1rem;
   color: #00bcd4;
@@ -531,7 +531,7 @@ header {
 .team-intro {
   font-size: 1.1rem;
   color: #ccc;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -539,9 +539,12 @@ header {
 
 .team-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
   margin-top: 2rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .team-member {
@@ -550,6 +553,7 @@ header {
   overflow: hidden;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  height: fit-content;
 }
 
 .team-member:hover {
@@ -560,56 +564,55 @@ header {
 
 .team-member img {
   width: 100%;
-  height: 400px;
+  height: 200px;
   object-fit: cover;
   display: block;
 }
 
 .member-info {
-  padding: 1.5rem;
+  padding: 1rem;
   text-align: center;
 }
 
 .member-info h3 {
   color: #00bcd4;
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
 }
 
 .role {
   color: #999;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
   font-weight: 500;
 }
 
 .experience {
   color: #ccc;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  margin-bottom: 0.8rem;
 }
 
 .skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.3rem;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .skill {
   background: #00bcd4;
   color: #1f1f1f;
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
   font-weight: 500;
 }
 
+/* Remove description - this style won't be needed */
 .description {
-  color: #ccc;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  display: none;
 }
 
 .view-more-btn {
@@ -722,6 +725,13 @@ footer {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .team-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2.5rem;
@@ -758,28 +768,25 @@ footer {
   }
   
   .team-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
   
-  .timeline::before {
-    left: 2rem;
+  .team-member img {
+    height: 180px;
   }
   
-  .timeline-item {
-    flex-direction: column !important;
-    align-items: flex-start;
-    padding-left: 4rem;
+  .member-info h3 {
+    font-size: 1rem;
   }
   
-  .timeline-year {
-    position: absolute;
-    left: -2rem;
-    transform: translateX(-50%);
+  .role {
+    font-size: 0.8rem;
   }
   
-  .timeline-content {
-    margin: 0;
-    margin-top: 1rem;
+  .skill {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
   }
   
   .section h2 {
@@ -798,5 +805,37 @@ footer {
   
   .logo {
     margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-container {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+  
+  .team-member img {
+    height: 250px;
+  }
+  
+  .member-info {
+    padding: 1.5rem;
+  }
+  
+  .member-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .role {
+    font-size: 0.9rem;
+  }
+  
+  .skills {
+    gap: 0.5rem;
+  }
+  
+  .skill {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
   }
 }
