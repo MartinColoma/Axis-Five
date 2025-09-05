@@ -1,0 +1,259 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-color: #121212; /* dark mode background */
+  color: #e0e0e0;
+  scroll-behavior: smooth;
+}
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Navbar */
+header {
+  background: #1f1f1f;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #00bcd4;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem; /* adjust as needed */
+  font-weight: bold;
+  margin-left: 40px;
+}
+
+.logo h1 {
+  font-size: 1.8rem; /* adjust size as needed */
+  font-weight: bold;
+}
+
+.axis {
+  color: #00bcd4;
+}
+
+.five {
+  color: #fff;
+}
+
+/* Navbar Base */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1f1f1f;
+  padding: 1rem 2rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li {
+  position: relative; /* Important for dropdown positioning */
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00bcd4;
+}
+/* Dropdown container */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* Below parent */
+  left: 0;
+  background: #2a2a2a;
+  min-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 100;
+  flex-direction: column;
+}
+
+.dropdown-content a {
+  padding: 0.75rem 1rem;
+  display: block;
+  color: #fff;
+}
+
+.dropdown-content a:hover {
+  background: #00bcd4;
+  color: #000;
+  border-radius: 8px;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+/* Sections */
+.section {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section h2 {
+  margin-bottom: 2rem;
+  color: #00bcd4;
+}
+
+/* Body styling starts here */
+
+
+
+
+
+
+
+
+
+/* Footer */
+footer {
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 2rem 1rem 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* pushes left/center/right */
+  align-items: flex-start;
+  flex-wrap: wrap; /* stacks on smaller screens */
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem; /* keep breathing room on wrap */
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px; /* prevents too much squish */
+}
+
+.footer-logo h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0 0 0.3rem;
+}
+
+.footer-axis {
+  color: #00bcd4;
+}
+
+.footer-five {
+  color: #fff;
+}
+
+.tagline {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #ccc;
+  margin-bottom: 0.8rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin: 0.3rem 0;
+}
+
+.footer-column h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: #00bcd4;
+}
+
+.footer-column h4 {
+  margin-bottom: 0.8rem;
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  color: #00bcd4;
+}
+
+/* Footer Links Styling */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #00bcd4;
+}
+
+/* Social Links Container */
+.footer-social {
+  margin-top: 1.2rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.footer-btn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-btn:hover {
+  background-color: #0097a7;
+  border: 2px solid #0097a7;
+  color: #1f1f1f;
+}
+
+.copyright {
+  border-top: 1px solid #444; /* can be #fff if you want solid white */
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #888;
+}
