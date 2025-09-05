@@ -637,23 +637,23 @@ header {
 footer {
   background-color: #1f1f1f;
   color: #fff;
-  padding: 3rem 1rem 1rem;
+  padding: 2rem 1rem 1rem;
   font-family: Arial, sans-serif;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* pushes left/center/right */
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* stacks on smaller screens */
   max-width: 1200px;
   margin: 0 auto;
-  gap: 2rem;
+  gap: 2rem; /* keep breathing room on wrap */
 }
 
 .footer-column {
   flex: 1;
-  min-width: 250px;
+  min-width: 200px; /* prevents too much squish */
 }
 
 .footer-logo h1 {
@@ -689,9 +689,44 @@ footer {
   color: #00bcd4;
 }
 
+.footer-column h4 {
+  margin-bottom: 0.8rem;
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  color: #00bcd4;
+}
+
+/* Footer Links Styling */
 .footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #00bcd4;
+}
+
+/* Social Links Container */
+.footer-social {
+  margin-top: 1.2rem;
+}
+
+.social-links {
   display: flex;
   gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .footer-btn {
@@ -709,20 +744,20 @@ footer {
 }
 
 .footer-btn:hover {
-  background-color: #00bcd4;
-  border: 2px solid #00bcd4;
+  background-color: #0097a7;
+  border: 2px solid #0097a7;
   color: #1f1f1f;
-  transform: translateY(-3px);
 }
 
 .copyright {
-  border-top: 1px solid #444;
+  border-top: 1px solid #444; /* can be #fff if you want solid white */
   text-align: center;
   margin-top: 2rem;
   padding-top: 1rem;
   font-size: 0.85rem;
   color: #888;
 }
+
 
 /* Responsive Design */
 @media (max-width: 1200px) {
