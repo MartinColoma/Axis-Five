@@ -162,36 +162,55 @@ document.querySelectorAll(".carousel").forEach(carousel => {
 });
 
 // Enhanced Contact Form Handler
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-  const submitBtn = this.querySelector('button[type="submit"]');
-  const originalText = submitBtn.innerHTML;
-  
-  // Show loading state
-  submitBtn.innerHTML = '⏳ Sending...';
-  submitBtn.disabled = true;
-
-  const formData = {
-    name: this.name.value,
-    email: this.email.value,
-    message: this.message.value
-  };
-
-  try {
-    const response = await fetch("http://localhost:3000/send-email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData)
-    });
-
-    const result = await response.json();
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
     
-    if (response.ok) {
-      // Success feedback
-      submitBtn.innerHTML = '✅ Message Sent!';
-      submitBtn.style.background = '#4caf50';
-      this.reset();
+    // Show loading state
+    submitBtn.innerHTML = '⏳ Sending...';
+    submitBtn.disabled = true;
+
+    const formData = {
+      name: this.name.value,
+      email: this.email.value,
+      message: this.message.value
+    };
+
+    try {
+      const response = await fetch("http://localhost:3000/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      
+      if (response.ok) {
+        // Success feedback
+        submitBtn.innerHTML = '✅ Message Sent!';
+        submitBtn.style.background = '#4caf50';
+        this.reset();
+        
+        // Reset button after 3 seconds
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.style.background = '#00bcd4';
+          submitBtn.disabled = false;
+        }, 3000);
+      } else {
+        throw new Error(result.message || 'Failed to send message');
+      }
+    } catch (error) {
+      // Error feedback
+      submitBtn.innerHTML = '❌ Failed to Send';
+      submitBtn.style.background = '#f44336';
+      
+      // Show error message
+      console.error('Contact form error:', error);
       
       // Reset button after 3 seconds
       setTimeout(() => {
@@ -199,58 +218,52 @@ document.getElementById("contactForm").addEventListener("submit", async function
         submitBtn.style.background = '#00bcd4';
         submitBtn.disabled = false;
       }, 3000);
-    } else {
-      throw new Error(result.message || 'Failed to send message');
     }
-  } catch (error) {
-    // Error feedback
-    submitBtn.innerHTML = '❌ Failed to Send';
-    submitBtn.style.background = '#f44336';
-    
-    // Show error message
-    console.error('Contact form error:', error);
-    
-    // Reset button after 3 seconds
-    setTimeout(() => {
-      submitBtn.innerHTML = originalText;
-      submitBtn.style.background = '#00bcd4';
-      submitBtn.disabled = false;
-    }, 3000);
-  }
-});
+  });
+}
 
 // Mobile Navigation Handler
 const burger = document.getElementById("burger");
 const navLinksContainer = document.getElementById("nav-links");
 
-burger.addEventListener("click", () => {
-  navLinksContainer.classList.toggle("active");
-  
-  // Toggle burger icon between bars and "X"
-  burger.innerHTML = navLinksContainer.classList.contains("active")
-    ? '<i class="fas fa-times"></i>'
-    : '<i class="fas fa-bars"></i>';
-});
-
-// Close mobile menu when clicking on a link
-navLinks.forEach(link => {
-  link.addEventListener("click", () => {
-    if (window.innerWidth <= 768) {
-      navLinksContainer.classList.remove("active");
-      burger.innerHTML = '<i class="fas fa-bars"></i>';
+if (burger && navLinksContainer) {
+  burger.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    navLinksContainer.classList.toggle("active");
+    
+    // Toggle burger icon between bars and "X"
+    const icon = burger.querySelector('i');
+    if (navLinksContainer.classList.contains("active")) {
+      icon.className = 'fas fa-times';
+    } else {
+      icon.className = 'fas fa-bars';
     }
   });
-});
 
-// Close mobile menu when clicking outside
-document.addEventListener("click", (e) => {
-  if (window.innerWidth <= 768) {
-    if (!burger.contains(e.target) && !navLinksContainer.contains(e.target)) {
-      navLinksContainer.classList.remove("active");
-      burger.innerHTML = '<i class="fas fa-bars"></i>';
+  // Close mobile menu when clicking on a link
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        navLinksContainer.classList.remove("active");
+        const icon = burger.querySelector('i');
+        icon.className = 'fas fa-bars';
+      }
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (window.innerWidth <= 768) {
+      if (!burger.contains(e.target) && !navLinksContainer.contains(e.target)) {
+        navLinksContainer.classList.remove("active");
+        const icon = burger.querySelector('i');
+        icon.className = 'fas fa-bars';
+      }
     }
-  }
-});
+  });
+}
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -260,7 +273,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     
     if (target) {
       const headerOffset = 80;
-      const elementPosition = target.getBoundingClientPosition().top;
+      const elementPosition = target.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
       window.scrollTo({
@@ -317,9 +330,10 @@ window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
     // Close mobile menu on resize to desktop
-    if (window.innerWidth > 768 && navLinksContainer.classList.contains('active')) {
+    if (window.innerWidth > 768 && navLinksContainer?.classList.contains('active')) {
       navLinksContainer.classList.remove('active');
-      burger.innerHTML = '<i class="fas fa-bars"></i>';
+      const icon = burger?.querySelector('i');
+      if (icon) icon.className = 'fas fa-bars';
     }
     
     // Update carousel cursor for desktop/mobile
@@ -336,9 +350,10 @@ window.addEventListener('resize', () => {
 // Keyboard navigation support
 document.addEventListener('keydown', (e) => {
   // Escape key closes mobile menu
-  if (e.key === 'Escape' && navLinksContainer.classList.contains('active')) {
+  if (e.key === 'Escape' && navLinksContainer?.classList.contains('active')) {
     navLinksContainer.classList.remove('active');
-    burger.innerHTML = '<i class="fas fa-bars"></i>';
+    const icon = burger?.querySelector('i');
+    if (icon) icon.className = 'fas fa-bars';
   }
   
   // Arrow keys for carousel navigation when focused
