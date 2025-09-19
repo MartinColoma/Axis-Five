@@ -28,6 +28,7 @@ Right after installing Node JS straight from the browser. Let's start to configu
 
 Follow the steps stupid ass pinoy bitch:
 1. Press Ctrl + ` (Control at tilde boss, kung di mo alam kung ano yung tilde ay bahala ka na sa buhay mo) to open the built-in terminal of VSC. In the terminal, we gotta make some good shii by typing some cheapass terminal commands. Follow my lead.
+    
     commands:
     
     1. let's initiate the node js in your working environment.
